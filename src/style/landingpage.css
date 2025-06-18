@@ -1,0 +1,49 @@
+.bg{
+    height: 100vh;
+    background-image: url("../assets/images/herolawas/cinemas.jpg");
+    background-size: cover;
+    
+}
+
+.intro{
+    height:300px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.judul{
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    line-height: 1.2;
+    text-shadow: 2px  whitesmoke;
+}
+
+.hero{
+    height: auto;
+    background-image: url("../assets/images/herolawas/bg1.jpg");
+    background-size: cover;
+}
+
+.lawas{
+    height: auto;
+    background-image: url("../assets/images/herolawas/np.jpg");
+    background-size: cover;
+}
+
+.movie-img{
+   height: auto;
+    margin: 5px;
+    padding: 5px;
+}
+
+.Imagi{
+    height: 500px;
+    
+}
+
+
+
