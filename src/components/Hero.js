@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, Container, Row, Col, Image,Button } from "react-bootstrap"
-import captImage from "../assets/images/hero/ca.jpg";
+// import captImage from "../assets/images/hero/ca.jpg";
 // import h1Image from "../assets/images/hero/antman.jpg";
 // import h2Image from "../assets/images/hero/avenger.jpg";
 // import h3Image from "../assets/images/hero/bigh6.jpg";
@@ -41,7 +41,7 @@ const Hero = () => {
                                     {result.overview}
                                 </Card.Text>
                                 <Card.Text className="text-left">{result.release_date}</Card.Text>
-                                <Button variant="light" href="#">Tonton Sekarang</Button>
+                                <Button variant="light" href="#">Sinopsis</Button>
                             </div>
                         </div>
                     </Card>

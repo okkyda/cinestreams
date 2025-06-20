@@ -1,113 +1,47 @@
-import { Card, Container, Row, Col, Image } from "react-bootstrap"
-import h6Image from "../assets/images/herolawas/batman.jpg";
-import h1Image from "../assets/images/herolawas/blade.jpg";
-import h2Image from "../assets/images/herolawas/dd.jpg";
-import h3Image from "../assets/images/herolawas/hellboy.jpg";
-import h4Image from "../assets/images/herolawas/spawn.jpg";
-import h5Image from "../assets/images/herolawas/superman.jpg";
+import { useEffect, useState } from "react";
+import { Card, Container, Row, Col, Image, Button } from "react-bootstrap"
+
+import axios from "axios";
 
 const Lawas = () => {
+
+     const [movies, setMovies] = useState([])
+    useEffect(()=> {
+        axios.get(`${process.env.REACT_APP_BASE_URL}/discover/tv`, {
+            params: {
+                api_key:process.env.REACT_APP_TMDB_KEY
+            }
+        }).then((response) => {
+            console.log("datas =>", response.data.results)
+            setMovies(response.data.results)
+            
+        })
+    } , [])
     return (
         <Container>
              <br />
             <h1 className="text-white">Old Hero Movie</h1>
             <br />
             <Row>
-                <Col md={4} className="movieWrapper" id="lawas">
+                {movies.map((result, index)=> {
+                    return(
+                    <Col md={4} className="movieWrapper" id="heroes">
                     <Card className="movie-img">
-                        <Image src={h6Image} alt="Batman " className="Imagi" />
+                        <Image src={`${process.env.REACT_APP_IMG_URL}/${result.poster_path}`} alt="Movie Poster " className="Imagi" />
                         <div className="bg-dark">
-                            <div className="p-4 m-3 text-white">
-                                <Card.Title classname="text-center">Batman</Card.Title>
+                            <div className="p-4 m-2  text-white">
+                                <Card.Title classname="text-center">{result.title}</Card.Title>
                                 <Card.Text classname="text-left" >
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
+                                    {result.overview}
                                 </Card.Text>
-                                <Card.Text className="text-left">Last updated 3 mins ago</Card.Text>
+                                <Card.Text className="text-left">{result.release_date}</Card.Text>
+                                <Button variant="light" href="#">Sinopsis</Button>
                             </div>
                         </div>
                     </Card>
-                </Col>
-
-                <Col md={4} className="movieWrapper">
-                    <Card className="movie-img">
-                        <Image src={h1Image} alt="Blade" className="Imagi" />
-                        <div className="bg-dark">
-                            <div className="p-4 m-3 text-white">
-                                <Card.Title classname="text-center">Blade</Card.Title>
-                                <Card.Text classname="text-left" >
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
-                                </Card.Text>
-                                <Card.Text className="text-left">Last updated 3 mins ago</Card.Text>
-                            </div>
-                        </div>
-                    </Card>
-                </Col>
-
-                <Col md={4} className="movieWrapper">
-                    <Card className="movie-img">
-                        <Image src={h2Image} alt="DareDevil" className="Imagi" />
-                        <div className="bg-dark">
-                            <div className="p-4 m-3  text-white">
-                                <Card.Title classname="text-center">DareDevil</Card.Title>
-                                <Card.Text classname="text-left" >
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
-                                </Card.Text>
-                                <Card.Text className="text-left">Last updated 3 mins ago</Card.Text>
-                            </div>
-                        </div>
-                    </Card>
-                </Col>
-
-                <Col md={4} className="movieWrapper">
-                    <Card className="movie-img">
-                        <Image src={h3Image} alt="Hellboy" className="Imagi" />
-                        <div className="bg-dark">
-                            <div className="p-4 m-3  text-white">
-                                <Card.Title classname="text-center">Hellboy</Card.Title>
-                                <Card.Text classname="text-left" >
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
-                                </Card.Text>
-                                <Card.Text className="text-left">Last updated 3 mins ago</Card.Text>
-                            </div>
-                        </div>
-                    </Card>
-                </Col>
-
-                <Col md={4} className="movieWrapper">
-                    <Card className="movie-img">
-                        <Image src={h4Image} alt="Spawn" className="Imagi" />
-                        <div className="bg-dark">
-                            <div className="p-4 m-3  text-white">
-                                <Card.Title classname="text-center">Spawn</Card.Title>
-                                <Card.Text classname="text-left" >
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
-                                </Card.Text>
-                                <Card.Text className="text-left">Last updated 3 mins ago</Card.Text>
-                            </div>
-                        </div>
-                    </Card>
-                </Col>
-
-                <Col md={4} className="movieWrapper">
-                    <Card className="movie-img">
-                        <Image src={h5Image} alt="Superman" className="Imagi" />
-                        <div className="bg-dark">
-                            <div className="p-4 m-3 text-white">
-                                <Card.Title classname="text-center">Superman</Card.Title>
-                                <Card.Text classname="text-left" >
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
-                                </Card.Text>
-                                <Card.Text className="text-left">Last updated 3 mins ago</Card.Text>
-                            </div>
-                        </div>
-                    </Card>
-                </Col>
+                </Col>)
+                })}
+                
             </Row>
         </Container>
 

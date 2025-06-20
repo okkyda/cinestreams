@@ -7,8 +7,8 @@ return (
         <Container>
             <Navbar.Brand href="/">Cinestream</Navbar.Brand>
             <Nav>
-            <Nav.Link href='#heroes'>Hero</Nav.Link>
-            <Nav.Link href='#lawas'>Lawas</Nav.Link>
+            <Nav.Link href='#heroes'>Discovery</Nav.Link>
+            <Nav.Link href='#lawas'>TV Show</Nav.Link>
             </Nav>
         </Container>
     </Navbar>
