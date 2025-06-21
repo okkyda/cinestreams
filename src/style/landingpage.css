@@ -24,26 +24,49 @@
 
 .hero{
     height: auto;
-    background-image: url("../assets/images/herolawas/bg1.jpg");
+    background-image: url("../assets/images/herolawas/bg4.jpg");
     background-size: cover;
 }
 
 .lawas{
     height: auto;
-    background-image: url("../assets/images/herolawas/np.jpg");
+    background-image: url("../assets/images/herolawas/bg4.jpg");
     background-size: cover;
 }
 
-.movie-img{
-   height: auto;
+.upcoming{
+    height: auto;
+    background-image: url("../assets/images/herolawas/bg4.jpg");
+    background-size: cover;
+}
+
+.movie-img {
+    border-radius: 15px;
     margin: 5px;
     padding: 5px;
 }
 
-.Imagi{
-    height: 500px;
-    
+.movie-img,
+.movie-img .card,
+.movie-img .card-body {
+    background-color: transparent !important;
+    box-shadow: none;
+    border:none!important;
 }
 
+.Imagi{
+    height: 500px;  
+    border-radius: 10%;
+    border: 1px solid white;
+}
 
+.Imagi:hover{
+    transform: scaleY(110%);
+    transform: scaleX(110%);
+    transition: 0.3s ease-in-out;
+}
+
+.bbtn{
+    cursor: pointer;
+}
 

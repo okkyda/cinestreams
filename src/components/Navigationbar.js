@@ -6,9 +6,13 @@ return (
     <Navbar variant='dark'>   
         <Container>
             <Navbar.Brand href="/">Cinestream</Navbar.Brand>
+
             <Nav>
+            <Nav.Link href='#upcoming'>Upcoming</Nav.Link>
             <Nav.Link href='#heroes'>Discovery</Nav.Link>
-            <Nav.Link href='#lawas'>TV Show</Nav.Link>
+            <Nav.Link href='#lawas'>TV</Nav.Link>
+            <Nav.Link href='#'>Genre</Nav.Link>
+            <Nav.Link href='#'>Year</Nav.Link>
             </Nav>
         </Container>
     </Navbar>

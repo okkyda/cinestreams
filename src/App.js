@@ -1,31 +1,62 @@
-
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navigationbar from './components/Navigationbar';
 import Intro from './components/Intro';
-import Hero from './components/Hero';
+import Discovery from './components/Discovery';
 import Lawas from './components/Lawas';
+import Moviedetails from './components/Moviedetails';
+import Upcoming from './components/Upcoming';
+import Foot from './components/Foot'
+import './App.css';
 import './style/landingpage.css';
+
+function AppContent() {
+  const location = useLocation();
+  const isLawasDetail = location.pathname === "/moviedetails" && location.state?.from === "lawas";
+
+  return (
+    <>
+      {!isLawasDetail && (
+        <>
+          <div className='bg'>
+            <Navigationbar />
+            <Intro />
+          </div>
+
+          <div>
+            <Upcoming />
+          </div>
+
+          <div className='hero'>
+            <Routes>
+              <Route path="/" element={<Discovery />} />
+              <Route path="/moviedetails" element={<Moviedetails />} />
+            </Routes>
+          </div>
+
+
+          {location.pathname === "/" && (
+            <div className='lawas'>
+              <Lawas />
+            </div>
+          )}
+
+          <div >
+            <Foot />
+          </div>
+        </>
+      )}
+      {isLawasDetail && (
+        <Moviedetails />
+      )}
+    </>
+  );
+}
+
 function App() {
   return (
-    <div>
-      {/* Intro Section */}
-      <div className='bg'>
-      <Navigationbar/>
-      <Intro />
-      </div>
-      {/* /* End Intro Section */}
-
-      {/* Hero Section */}
-      <div className='hero'>
-        <Hero />
-      </div>
-
-      <div className='lawas'>
-        <Lawas />
-      </div>
-    </div>
-    // {/* End Hero Section */}
-    
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 
